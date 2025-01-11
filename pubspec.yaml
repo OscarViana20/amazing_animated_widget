@@ -1,0 +1,20 @@
+name: amazing_animated_widget
+description: "This provides various custom animations for widgets"
+version: 0.0.1
+homepage: https://github.com/OscarViana20/amazing_animated_widget
+repository: https://github.com/OscarViana20/amazing_animated_widget
+
+environment:
+  sdk: ^3.5.3
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
