@@ -71,7 +71,7 @@ ListView.builder(,
 ```
 ![spiral default](https://github.com/user-attachments/assets/be04e034-73e6-4197-8941-de9046253207)
 
-Custom values:
+Custom values (Spiral):
 ```dart
 ListView.builder(,
     itemCount: items.length,
@@ -92,6 +92,28 @@ ListView.builder(,
 ),
 ```
 ![spiral custom](https://github.com/user-attachments/assets/6bafdc80-7c05-4f8a-b27f-82bc5102bf9d)
+
+Custom values (Circular):
+```dart
+ListView.builder(,
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+        return AnimatedWidgetItem(
+            index: index,
+            speedFactor: 1.0,
+            exitAnimation: true,
+            curve: Curves.easeInCubic,
+            animationType: AnimationType.circular,
+            duration: const Duration(milliseconds: 600),
+            animationDirection: index.isEven
+                ? AnimationDirection.left
+                : AnimationDirection.right,
+            child: child,
+        );
+    }
+),
+```
+![circular custom](https://github.com/user-attachments/assets/64086bc7-0401-49fb-87a8-3644c960a9f6)
 
 
 Grid example:

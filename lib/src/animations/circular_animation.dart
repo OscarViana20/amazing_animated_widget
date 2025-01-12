@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/animation_direction.dart';
 
 /// A widget that applies a circular animation to its child.
-/// 
+///
 /// The animation moves the child widget along a circular path while
 /// progressively increasing its opacity from 0 to 1. The direction,
 /// duration, curve, and speed can be customized.
@@ -65,16 +65,18 @@ class CircularAnimation extends StatelessWidget {
       builder: (context, value, child) {
         // Calculate the widget's position on the circular path.
         const radius = 100.0; // Radius of the circular path.
-        final angle = angleOffset + (value * pi); // Circular movement between 0° and 180°.
+        final angle = angleOffset +
+            (value * pi); // Circular movement between 0° and 180°.
 
         // Compute the X and Y offsets for the circular movement.
-        final offsetX = radius * cos(angle);  // Horizontal displacement.
-        final offsetY = radius * sin(angle);  // Vertical displacement.
+        final offsetX = radius * cos(angle); // Horizontal displacement.
+        final offsetY = radius * sin(angle); // Vertical displacement.
 
         return Transform(
           alignment: Alignment.center,
           transform: Matrix4.identity()
-            ..translate(offsetX / radius, offsetY) // Apply the circular translation.
+            ..translate(
+                offsetX / radius, offsetY) // Apply the circular translation.
             ..scale(1.0) // Keep the widget's size unchanged.
             ..rotateZ(value * 2 * pi), // Add continuous rotation around Z-axis.
           child: Opacity(

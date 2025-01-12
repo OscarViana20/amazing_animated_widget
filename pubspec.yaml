@@ -1,8 +1,9 @@
 name: amazing_animated_widget
-description: "This provides various custom animations for widgets"
-version: 0.0.1
+description: A Flutter package providing customizable animations for UI elements. It includes various animations such as circular, explosion, fade, flip, scale, and spiral.
 homepage: https://github.com/OscarViana20/amazing_animated_widget
 repository: https://github.com/OscarViana20/amazing_animated_widget
+
+version: 0.0.2
 
 environment:
   sdk: ^3.5.3
@@ -15,6 +16,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
   flutter_lints: ^4.0.0
 
+topics:
+  - ui
+  - animation
+  - animations
+
 flutter:
+
+  uses-material-design: true

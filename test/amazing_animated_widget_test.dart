@@ -21,7 +21,8 @@ void main() {
       expect(find.byType(Container), findsOneWidget);
     });
 
-    testWidgets('Applies circular animation correctly', (WidgetTester tester) async {
+    testWidgets('Applies circular animation correctly',
+        (WidgetTester tester) async {
       // Arrange
       final testWidget = AmazingAnimatedWidget(
         index: 0,
@@ -41,7 +42,8 @@ void main() {
       expect(find.byType(Container), findsOneWidget);
     });
 
-    testWidgets('Applies fade animation correctly', (WidgetTester tester) async {
+    testWidgets('Applies fade animation correctly',
+        (WidgetTester tester) async {
       // Arrange
       final testWidget = AmazingAnimatedWidget(
         index: 0,
@@ -61,7 +63,8 @@ void main() {
       expect(find.byType(Container), findsOneWidget);
     });
 
-    testWidgets('Applies flip animation correctly', (WidgetTester tester) async {
+    testWidgets('Applies flip animation correctly',
+        (WidgetTester tester) async {
       // Arrange
       final testWidget = AmazingAnimatedWidget(
         index: 0,
@@ -81,7 +84,8 @@ void main() {
       expect(find.byType(Container), findsOneWidget);
     });
 
-    testWidgets('Applies scale animation correctly', (WidgetTester tester) async {
+    testWidgets('Applies scale animation correctly',
+        (WidgetTester tester) async {
       // Arrange
       final testWidget = AmazingAnimatedWidget(
         index: 0,
@@ -101,7 +105,8 @@ void main() {
       expect(find.byType(Container), findsOneWidget);
     });
 
-    testWidgets('Applies explosion animation correctly', (WidgetTester tester) async {
+    testWidgets('Applies explosion animation correctly',
+        (WidgetTester tester) async {
       // Arrange
       final testWidget = AmazingAnimatedWidget(
         index: 0,

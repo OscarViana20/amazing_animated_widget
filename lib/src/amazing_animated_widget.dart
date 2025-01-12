@@ -10,7 +10,7 @@ import 'constants/animation_direction.dart';
 import 'constants/animation_type.dart';
 
 /// A widget that provides dynamic animations to any child widget.
-/// 
+///
 /// `AmazingAnimatedWidget` offers a variety of animation types like spiral,
 /// explosion, circular, scale, and more. This widget is versatile and can
 /// be used with lists, grids, or standalone widgets.
@@ -103,7 +103,6 @@ class _AmazingAnimatedWidgetState extends State<AmazingAnimatedWidget> {
   /// Builds the animation based on the provided [AnimationType].
   Widget _buildAnimation(AnimationType type, Widget child) {
     switch (type) {
-
       case AnimationType.circular:
         return CircularAnimation(
           direction: widget.animationDirection,
@@ -151,8 +150,6 @@ class _AmazingAnimatedWidgetState extends State<AmazingAnimatedWidget> {
           curve: widget.curve,
           child: child,
         );
-      default:
-        return child;
     }
   }
 }
