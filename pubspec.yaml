@@ -3,7 +3,7 @@ description: A Flutter package providing customizable animations for UI elements
 homepage: https://github.com/OscarViana20/amazing_animated_widget
 repository: https://github.com/OscarViana20/amazing_animated_widget
 
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ^3.5.3
