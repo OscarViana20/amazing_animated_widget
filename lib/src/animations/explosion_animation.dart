@@ -60,10 +60,13 @@ class ExplosionAnimation extends StatelessWidget {
     // Base angle depending on the direction (left or right)
     final baseAngle = direction == AnimationDirection.left ? pi : 0;
 
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Applying the chosen curve and adjusting the duration with speedFactor
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Tween animation from 0.0 to 1.0 to animate the progress
       tween: Tween<double>(begin: 0.0, end: 1.0),
       builder: (context, value, child) {

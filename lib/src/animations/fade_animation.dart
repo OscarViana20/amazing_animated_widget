@@ -55,10 +55,13 @@ class FadeAnimation extends StatelessWidget {
     final isLeft = direction == AnimationDirection.left;
     final initialOffset = isLeft ? -50.0 : 50.0;
 
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Apply the easing curve and adjust the duration with the speed factor
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Animate from 1.0 to 0.0 to create the fade effect
       tween: Tween<double>(begin: 1.0, end: 0.0),
       builder: (context, value, child) {

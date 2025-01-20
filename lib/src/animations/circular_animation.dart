@@ -56,10 +56,13 @@ class CircularAnimation extends StatelessWidget {
     // Left starts at 180 degrees (π radians), right starts at 0 degrees.
     double angleOffset = direction == AnimationDirection.left ? pi : 0.0;
 
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Apply the selected curve and adjust the duration with speedFactor.
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Tween from 0.0 to 1.0 to animate the progress.
       tween: Tween<double>(begin: 0.0, end: 1.0), // De 0 a 1
       builder: (context, value, child) {

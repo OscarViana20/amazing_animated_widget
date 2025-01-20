@@ -10,3 +10,8 @@
 
 * Update README
 
+## 0.0.4
+
+* Troubleshooting existing issues using speedFactor
+* Update README
+

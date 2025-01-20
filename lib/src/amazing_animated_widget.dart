@@ -73,7 +73,7 @@ class AmazingAnimatedWidget extends StatefulWidget {
 
 class _AmazingAnimatedWidgetState extends State<AmazingAnimatedWidget> {
   // Keeps track of already animated indices to prevent re-animating them.
-  static final Set<int> _animatedIndices = {};
+  static final Map<int, Widget> _animatedWidgets = {};
 
   // Determines if the widget should animate its exit.
   late bool _shouldAnimateExit;
@@ -87,13 +87,13 @@ class _AmazingAnimatedWidgetState extends State<AmazingAnimatedWidget> {
   @override
   Widget build(BuildContext context) {
     // If the widget has already animated and exit animation is not enabled, return the child directly.
-    if (!_shouldAnimateExit && _animatedIndices.contains(widget.index)) {
-      return widget.child;
+    if (!_shouldAnimateExit && _animatedWidgets.containsKey(widget.index)) {
+      return _animatedWidgets[widget.index]!;
     }
 
     // Mark the index as animated for entry animations.
     if (!_shouldAnimateExit) {
-      _animatedIndices.add(widget.index);
+      _animatedWidgets[widget.index] = widget.child;
     }
 
     // Build the animation based on the specified type.

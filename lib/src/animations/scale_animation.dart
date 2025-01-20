@@ -43,10 +43,13 @@ class ScaleAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Apply the easing curve and adjust the duration with the speed factor
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Animate the scaling effect from 0.5x to 1.0x (50% to 100%)
       tween: Tween<double>(begin: 0.5, end: 1.0),
       builder: (context, value, child) {

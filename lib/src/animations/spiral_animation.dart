@@ -51,10 +51,13 @@ class SpiralAnimation extends StatelessWidget {
     // Determine the initial movement direction based on the provided animation direction.
     final offset = direction == AnimationDirection.left ? -300.0 : 300.0;
 
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Apply the easing curve and adjust the duration with the speed factor.
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Animate the widget from a larger size (1.5) to its final position (0.0).
       tween: Tween<double>(begin: 1.5, end: 0.0),
       builder: (context, value, child) {

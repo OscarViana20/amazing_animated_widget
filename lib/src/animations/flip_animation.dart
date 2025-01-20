@@ -56,10 +56,13 @@ class FlipAnimation extends StatelessWidget {
     // Determine if the flip should be to the left based on the direction
     final isLeft = direction == AnimationDirection.left;
 
+    // SpeedFactor has to be greater than zero
+    final safeSpeedFactor = speedFactor > 0 ? speedFactor : 1.0;
+
     return TweenAnimationBuilder(
       // Apply the easing curve and adjust the duration with the speed factor
       curve: curve,
-      duration: duration * speedFactor,
+      duration: duration * safeSpeedFactor,
       // Animate the flip effect from -1.0 to 0.0 (horizontal flip)
       tween: Tween<double>(begin: -1.0, end: 0.0),
       builder: (context, value, child) {

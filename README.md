@@ -2,6 +2,13 @@
 
 This package provides a `AmazingAnimatedWidget` widget for Flutter apps. It allows users to add dynamic animations to any widget in Flutter. Whether you're working with lists, grids, or standalone widgets, `AmazingAnimatedWidget` makes it easy to create engaging and captivating interfaces with animations like spirals, explosions, scaling, flips, and more.
 
+## Features
+
+- Easy integration with any widget.
+- Customizable animation types: Spiral, Explosion, Circular, Fade, Flip, Scale.
+- Supports both entry and exit animations.
+- Smooth animation curves for realistic transitions.
+
 ## Installation
 
 Add the `amazing_animated_widget` package as a dependency in your `pubspec.yaml` file:
@@ -16,9 +23,9 @@ import 'package:amazing_animated_widget/amazing_animated_widget.dart';
 ```
 
 ## Usage
-Default values:
+#### Basic ListView with Default Spiral Animation:
 ```dart
-ListView.builder(,
+ListView.builder(
     itemCount: items.length,
     itemBuilder: (context, index) {
         return AnimatedWidgetItem(
@@ -71,44 +78,44 @@ ListView.builder(,
 ```
 ![spiral default](https://github.com/user-attachments/assets/be04e034-73e6-4197-8941-de9046253207)
 
-Custom values (Spiral):
+### Custom Spiral Animation (With Speed and Exit Effects):
 ```dart
-ListView.builder(,
+ListView.builder(
     itemCount: items.length,
     itemBuilder: (context, index) {
         return AnimatedWidgetItem(
             index: index,
             speedFactor: 1.0,
             exitAnimation: true,
-            curve: Curves.easeInCubic,
+            curve: Curves.easeOutBack,
             animationType: AnimationType.spiral,
             duration: const Duration(milliseconds: 600),
             animationDirection: index.isEven
                 ? AnimationDirection.left
                 : AnimationDirection.right,
-            child: child,
+            child: YourWidget(),
         );
     }
 ),
 ```
 ![spiral custom](https://github.com/user-attachments/assets/6bafdc80-7c05-4f8a-b27f-82bc5102bf9d)
 
-Custom values (Circular):
+### Custom Circular Animation:
 ```dart
-ListView.builder(,
+ListView.builder(
     itemCount: items.length,
     itemBuilder: (context, index) {
         return AnimatedWidgetItem(
             index: index,
             speedFactor: 1.0,
             exitAnimation: true,
-            curve: Curves.easeInCubic,
+            curve: Curves.easeOutCirc,
             animationType: AnimationType.circular,
             duration: const Duration(milliseconds: 600),
             animationDirection: index.isEven
                 ? AnimationDirection.left
                 : AnimationDirection.right,
-            child: child,
+            child: YourWidget(),
         );
     }
 ),
@@ -116,9 +123,9 @@ ListView.builder(,
 ![circular custom](https://github.com/user-attachments/assets/64086bc7-0401-49fb-87a8-3644c960a9f6)
 
 
-Grid example:
+### Grid View Example with Spiral Animation:
 ```dart
-GridView.builder(,
+GridView.builder(
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 10,
@@ -136,23 +143,76 @@ GridView.builder(,
             animationDirection: index.isEven
                 ? AnimationDirection.left
                 : AnimationDirection.right,
-            child: widget,
+            child: YourWidget(),
         );
     },
 ),
 ```
 ![grid example](https://github.com/user-attachments/assets/8fa48275-7343-4e15-881d-063f7fc33a12)
 
-Standalone example:
+## Standalone animations
+- **_SpiralAnimation:_**
 ```dart
-AmazingAnimatedWidget(,
-  index: 0,
-  animationType: AnimationType.fade,
-  duration: Duration(milliseconds: 800),
-  child: ElevatedButton(
-    onPressed: () {},
-    child: Text('Standalone Button'),
-  ),
+SpiralAnimation(
+    duration: const Duration(milliseconds: 600),
+    direction: AnimationDirection.left,
+    curve: Curves.easeOutBack,
+    speedFactor: 1.0,
+    child: YourWidget(),
+),
+```
+
+- **_CircularAnimation:_**
+```dart
+CircularAnimation(
+    duration: const Duration(milliseconds: 600),
+    direction: AnimationDirection.left,
+    curve: Curves.easeOutCirc,
+    speedFactor: 1.0,
+    child: YourWidget(),
+),
+```
+
+- **_ExplosionAnimation:_**
+```dart
+ExplosionAnimation(
+    duration: const Duration(milliseconds: 600),
+    direction: AnimationDirection.left,
+    curve: Curves.easeOutCubic,
+    speedFactor: 1.0,
+    child: YourWidget(),
+),
+```
+
+- **_FadeAnimation:_**
+```dart
+FadeAnimation(
+    duration: const Duration(milliseconds: 600),
+    direction: AnimationDirection.left,
+    curve: Curves.easeIn,
+    speedFactor: 3.0,
+    child: YourWidget(),
+),
+```
+
+- **_FlipAnimation:_**
+```dart
+FlipAnimation(
+    duration: const Duration(milliseconds: 600),
+    direction: AnimationDirection.left,
+    curve: Curves.easeOut,
+    speedFactor: 1.0,
+    child: YourWidget(),
+),
+```
+
+- **_ScaleAnimation:_**
+```dart
+ScaleAnimation(
+    duration: const Duration(milliseconds: 600),
+    curve: Curves.ease,
+    speedFactor: 1.0,
+    child: YourWidget(),
 ),
 ```
 
@@ -170,10 +230,10 @@ The AnimatedWidgetItem widget offers various customization options to match your
 - `animationDirection`: Specifies the direction for directional animations (not required for scale).
 
 ## Support
-Like this project? Leave a ⭐️, it's free and means a lot.<br>
+If you like this project, please leave a ⭐️. It helps and motivates us to continue working on it!<br>
 
 ## Contributions
-Contributions, issues, and feature requests are welcome! Feel free to check issues page.
+Contributions, issues, and feature requests are welcome! Feel free to open an issue or submit a pull request.
 
 ## License
 This project is MIT licensed.
